@@ -1,0 +1,227 @@
+/* -----------------
+Tabla de contenidos:
+--------------------
+1. Fuente ................ 11
+2. Variables ............. 17
+3. Estilos generales ..... 32
+-------------------- 
+*/
+
+/* ----- Fuente ----- */
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+/* ----- Variables ----- */
+:root {
+  --Moderate-violet: hsl(263, 55%, 52%);
+  --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --White: hsl(0, 0%, 100%);
+  --bg: hsl(210, 46%, 95%);
+
+  --light-gray: hsl(0, 0%, 81%);
+  --light-gray-opacity: hsl(0, 0%, 70%);
+  --light-gray-paragraph: hsl(0, 0%, 50%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* ----------------------------- */
+/* ----- Estilos generales ----- */
+/* ----------------------------- */
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 0.8125rem;
+  background-color: var(--light-grayish-blue);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  transition: background-color 0.5s ease;
+}
+.container {
+  max-width: 1000px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  display: grid;
+  gap: 20px;
+}
+
+
+/* efecto blur */
+.container:hover article{
+    opacity: .5;
+    filter: blur(3px);
+
+}
+
+
+article{
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.container article:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: blur(0);
+
+}
+
+/* Cards */
+.daniel {
+  background-color: var(--Moderate-violet);
+  color: var(--White);
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 80% 0%;
+}
+
+.card {
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: left;
+}
+.card h2 {
+  font-size: 1rem;
+  color: hsl(0, 0%, 95%);
+}
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 0; 
+}
+
+img {
+  border-radius: 50%;
+  border: 3px solid transparent;
+  width: 35px;
+  height: auto;
+}
+.content-info {
+  color: var(--white-header);
+}
+
+.info {
+  margin-left: 1.5rem;
+}
+.info p {
+  color: hsl(0, 0%, 65%);
+}
+.header-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.daniel img {
+  border: 3px solid hsl(263, 55%, 65%);
+}
+
+.jonathan {
+  background-color: var(--Very-dark-grayish-blue);
+  color: var(--White);
+}
+
+.harmon {
+  background-color: var(--White);
+}
+.patrick {
+  background-color: var(--Very-dark-blackish-blue);
+  color: var(--White);
+}
+.patrick img {
+  border: 3px solid var(--Moderate-violet);
+}
+.kira {
+  background-color: var(--White);
+}
+.white-card h2 {
+  color: hsl(0, 0%, 40%);
+}
+.white-card p {
+  color: hsl(0, 0%, 55%);
+}
+.white-card .header-text {
+  color: hsl(0, 0%, 30%);
+}
+
+@media screen and (min-width: 760px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-content: center;
+    grid-template-areas:
+      "one one two five"
+      "three four four five";
+    grid-gap: 20px;
+    max-width: 1250px;
+  }
+  .daniel {
+    grid-template-areas: one;
+    grid-row: 1;
+    grid-column: 1 / span 2;
+  }
+  .jonathan {
+    grid-template-areas: two;
+    grid-column: 3 / span 1;
+  }
+  .harmon {
+    grid-template-areas: three;
+    grid-column: 1 / span 1;
+  }
+  .patrick {
+    grid-template-areas: four;
+    grid-column: 2 / span 2;
+  }
+  .kira {
+    grid-template-areas: five;
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 2;
+  }
+  .content-info {
+    line-height: 1.5;
+  }
+}
+
+
+/* Dark Mode */
+.modo{
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+}
+
+.modo span{
+    font-size: 20px;
+    
+}
+
+.light-mode {
+    background-color: var(--light-grayish-blue);
+    color: var(--Black);
+  }
+  
+  .dark-mode {
+    background-color: var(--Very-dark-blackish-blue);
+    color: var(--White);
+  }
+
+.dark-mode article{
+    background-color: var(--White);
+    color: var(--Very-dark-blackish-blue);
+}
+
+.dark-mode .white-card h2,
+.dark-mode .white-card p,
+.dark-mode .white-card .header-text {
+  color:var(--Very-dark-blackish-blue);
+}
+
+.dark-mode .info h2{
+    color:var(--Very-dark-blackish-blue);
+}
+
+.dark-mode .profile img {
+    border: 3px solid #fff;
+  }
